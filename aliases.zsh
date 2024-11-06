@@ -1,0 +1,1 @@
+/Users/luannguyen/.zsh/config/alias.zsh

@@ -110,14 +110,9 @@ source $ZSH/oh-my-zsh.sh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-alias ed="code ~/.zshrc" #edit ./zshrc
-alias ref="source ~/.zshrc" #refresh ./zshrc
-alias l="colorls -A --sd"
-alias ll="colorls -lA --sd"
-alias :q="exit"
+
+# Source aliases
+source ~/.zsh/aliases.zsh
 
 #Now when you want to add a new alias, simply type ed to open your editor. 
 #After saving your .zshrc file, simply type ref to re-source your config and access this new command.
