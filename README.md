@@ -1,73 +1,47 @@
-# My ZSH Configuration
+# zsh-config
 
-A modern, powerful shell configuration with beautiful theme and useful plugins for [Oh-My-Zsh](https://ohmyz.sh/)
+My personal Zsh configuration for macOS — Oh-My-Zsh + Powerlevel10k.
 
-## ✨ Features
+## Dependencies
 
-- 💻 Custom aliases and functions
-- 🎨 Beautiful terminal prompt with Powerlevel10k
-- 📝 Smart autosuggestions
-- 🌈 Syntax highlighting
-- ⚡️ Fast and efficient setup
+- [Oh-My-Zsh](https://ohmyz.sh/)
+- [Powerlevel10k](https://github.com/romkatv/powerlevel10k)
+- [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
+- [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
+- [fzf](https://github.com/junegunn/fzf)
+- [zoxide](https://github.com/ajeetdsouza/zoxide)
+- [eza](https://github.com/eza-community/eza) *(optional, for better `ls`)*
 
-## 🔧 Required Dependencies
-
-| Dependency                                                                      | Description                          |
-| ------------------------------------------------------------------------------- | ------------------------------------ |
-| [Oh-My-Zsh](https://ohmyz.sh/)                                                  | 💪 A delightful framework for Zsh    |
-| [Powerlevel10k](https://github.com/romkatv/powerlevel10k)                       | ✨ A beautiful and informative theme |
-| [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)         | 🔍 Fish-like autosuggestions         |
-| [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) | 🎨 Fish-like syntax highlighting     |
-
-## 📦 Installation
-
-### 1. Install Oh-My-Zsh
+## Install
 
 ```bash
+# 1. Install Oh-My-Zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-```
 
-### 2. Clone this repository
+# 2. Clone this repo
+git clone https://github.com/LuaanNguyen/zsh-config.git ~/.zsh
 
-```bash
-git clone https://github.com/YOUR_USERNAME/zsh-config.git ~/.zsh
-```
-
-### 3. Install required plugins
-
-```bash
+# 3. Install plugins
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-```
 
-### 4. Install Powerlevel10k theme
-
-```bash
+# 4. Install Powerlevel10k
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-```
 
-### 5. Create symlinks
+# 5. Install CLI tools
+brew install fzf zoxide eza
+$(brew --prefix)/opt/fzf/install
 
-```bash
+# 6. Symlink configs
 ln -s ~/.zsh/config/zshrc ~/.zshrc
 ln -s ~/.zsh/config/alias.zsh ~/.zsh/aliases.zsh
+ln -s ~/.zsh/config/.p10k.zsh ~/.p10k.zsh
 ```
 
-## 🎨 Customization
+## Customization
 
-- Edit `~/.zsh/config/alias.zsh` to add your custom aliases
-- Edit `~/.zsh/config/zshrc` to modify your Zsh configuration
-- Run `p10k configure` to customize your Powerlevel10k theme
+- Aliases → `config/alias.zsh`
+- Shell config → `config/zshrc`
+- Prompt → run `p10k configure`
 
-## 📝 Notes
-
-- Recommended font: [MesloLGS NF](https://github.com/romkatv/powerlevel10k#meslo-nerd-font-patched-for-powerlevel10k)
-- Terminal: iTerm2 (macOS) or Windows Terminal (Windows)
-
-## 🤝 Contributing
-
-Feel free to submit issues and enhancement requests!
-
-## 📜 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
+> Recommended font: [MesloLGS NF](https://github.com/romkatv/powerlevel10k#meslo-nerd-font-patched-for-powerlevel10k)

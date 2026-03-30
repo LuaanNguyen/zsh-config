@@ -1,3 +1,7 @@
+# Amazon Q pre block. Keep at the top of this file.
+[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh"
+
+
 # Initialize rbenv, a Ruby version manager (for colorls)
 eval "$(rbenv init -)"
 
@@ -82,8 +86,10 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
-  zsh-autosuggestions
   zsh-syntax-highlighting
+  zsh-autosuggestions
+  z
+  fzf
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -157,8 +163,41 @@ case ":$PATH:" in
 esac
 # pnpm end
 
+# zoxide (smarter cd) - install with: brew install zoxide
+command -v zoxide &>/dev/null && eval "$(zoxide init zsh)"
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # To help differentiate suggestions from text easier when using Auto-suggestions Plugins
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#939393,bold,underline"
+alias psql="psql -d $(whoami)"
+alias zshrc="nvim ~/.zshrc && source ~/.zshrc"
+alias info="fastfetch"
+alias rebar="brew services restart sketchybar"
+alias upbrew="brew update && brew upgrade"
+alias ls='ls --color=auto' # ls with color 
+alias grep='grep --colour=auto' # grep with color 
+
+# keybind
+bindkey '^[[1;5C' forward-word   # Ctrl+Right
+bindkey '^[[1;5D' backward-word  # Ctrl+Left
+bindkey '^[d' kill-word          # Option+D
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /opt/homebrew/bin/terraform terraform
+
+# bun completions
+[ -s "/Users/luannguyen/.bun/_bun" ] && source "/Users/luannguyen/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+
+# Added by Windsurf
+export PATH="/Users/luannguyen/.codeium/windsurf/bin:$PATH"
+
+# Amazon Q post block. Keep at the bottom of this file.
+[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"
+# sketchybar --config ~/.config/sketchybar/init.lua  # run manually, not on every shell start
